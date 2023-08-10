@@ -1,9 +1,13 @@
 /*libary*/
 #include <stdio.h>
 
-/*main enter point */
+/**
+ * main - entry point
+ * return: always 0
+ */
+
 int main(void)
 {
 	puts("\"Programming is like building a multilingual puzzle");
-	return (0);/*return should be 0*/
+	return (0);
 }
