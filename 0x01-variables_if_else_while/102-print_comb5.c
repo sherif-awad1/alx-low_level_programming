@@ -11,7 +11,7 @@ int main(void)
 	int ten;
 	int onee;
 	int tenn;
-	
+
 	for (one = '0'; one <= '9'; one++)
 	{
 		for (ten = '0'; ten <= '9'; ten++)
