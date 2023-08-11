@@ -11,22 +11,22 @@ int main(void)
 	int ten;
 	int hand;
 
-	for (hand = 0; hand < 10; hand++)
+	for (hand = '0'; hand <= '9'; hand++)
 	{
-		for (ten = (hand + 1); ten < 10; ten++)
+		for (ten = (hand + 1); ten <= '9'; ten++)
+		{
+			for (one = (ten + 1); one <= '9'; o++)
 			{
-				for (one = (ten + 1); one < 10; one++)
+				putchar(hand);
+				putchar(ten);
+				putchar(one);
+				if (hand != '7' || ten != '8' || one != '9')
 				{
-					putchar(hand + '0');
-					putchar(ten + '0');
-					putchar(one + '0');
-					if (hand != 7 || ten != 8 || one != 9)
-					{
-						putchar(',');
-						putchar(' ');
-					}
+					putchar(',');
+					putchar(' ');
 				}
 			}
+		}
 	}
 	putchar('\n');
 	return (0);
