@@ -5,7 +5,7 @@
  *Return: Always 0 (Success)
  */
 
-int mian(void)
+int main(void)
 {
 	int one;
 	int ten;
@@ -14,8 +14,8 @@ int mian(void)
 	{
 		for (ten = (one + 1); ten < 10; ten++)
 		{
-			putchar(one + '0');
-			putchar(ten + '0');
+			putchar(one);
+			putchar(ten);
 			if (one != 8 || ten != 9)
 			{
 				putchar(',');
@@ -24,5 +24,5 @@ int mian(void)
 		}
 	}
 	putchar('\n');
-	return 0;
+	return (0);
 }
