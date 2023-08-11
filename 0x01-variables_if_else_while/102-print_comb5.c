@@ -25,8 +25,8 @@ int main(void)
 					putchar(' ');
 					putchar(onee);
 					putchar(tenn);
-
-					if (!((one == '9' && ten == '8') && (onee == '9' && tenn == '9')))
+					if (!((one  == '9' && ten == '8') &&
+					      (onee == '9' && tenn == '9')))
 					{
 						putchar(',');
 						putchar(' ');
