@@ -7,36 +7,29 @@
 
 int main(void)
 {
-	int one;
-	int ten;
-	int onee;
-	int tenn;
 
-	for (one = '0'; one <= '9'; one++)
+	int one, ten;
+
+	for (one = 0; one < 100; one++)
 	{
-		for (ten = '0'; ten <= '9'; ten++)
+		for (ten = 0; ten < 100; ten++)
 		{
-			for (onee = one; onee <= '9'; onee++)
+			if (one < ten)
 			{
-				for (tenn = ten + 1; tenn <= '9'; tenn++)
+				putchar((one / 10) + 48);
+				putchar((one % 10) + 48);
+				putchar(' ');
+				putchar((ten / 10) + 48);
+				putchar((ten % 10) + 48);
+				if (one != 98 || ten != 99)
 				{
-					putchar(one);
-					putchar(ten);
+					putchar(',');
 					putchar(' ');
-					putchar(onee);
-					putchar(tenn);
-					if (!((one  == '9' && ten == '8') &&
-					      (onee == '9' && tenn == '9')))
-					{
-						putchar(',');
-						putchar(' ');
-					}
 				}
-				tenn = '0';
 			}
+
 		}
 	}
 	putchar('\n');
-
 	return (0);
 }
