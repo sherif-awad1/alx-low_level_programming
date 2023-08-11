@@ -15,7 +15,7 @@ int main(void)
 	{
 		for (ten = (hand + 1); ten <= '9'; ten++)
 		{
-			for (one = (ten + 1); one <= '9'; o++)
+			for (one = (ten + 1); one <= '9'; one++)
 			{
 				putchar(hand);
 				putchar(ten);
