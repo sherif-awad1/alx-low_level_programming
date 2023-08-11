@@ -9,28 +9,22 @@ int main(void)
 {
 	int one;
 	int ten;
-	int onee;
-	int tenn;
 
-	for (one = '0'; one <= '9'; one++)
+	for (one = 0; one <= 99; one++)
 	{
-		for (ten = '0'; ten <= '9'; ten++)
+		for (ten = 0; ten <= 99; ten++)
 		{
-			for (onee = one; onee <= '9'; onee++)
+			if (one < ten && one != ten)
 			{
-				for (tenn = ten + 1; tenn <= '9'; tenn++)
+				putchar((one / 10) + '0');
+				putchar((one % 10) + '0');
+				putchar(' ');
+				putchar((ten / 10) + '0');
+				putchar((ten % 10) + '0');
+				if (one != 98 && ten != 99)
 				{
-					putchar(one);
-					putchar(ten);
+					putchar(',');
 					putchar(' ');
-					putchar(onee);
-					putchar(tenn);
-					if (!((one == '9' && ten == '8') && (onee == '9' && tenn == '9')))
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					tenn = '0';
 				}
 			}
 		}
