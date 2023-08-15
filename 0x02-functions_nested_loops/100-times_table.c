@@ -17,31 +17,31 @@ void print_times_table(int n)
 				tot = (row * col);
 				if (col == 0)
 				{
-					_putchar(0 + tot);
+					_putchar('0' + tot);
 				}
-				else
+				else if (tot < 10 && cal != 0)
 				{
 					_putchar(',');
 					_putchar(' ');
-					if (tot <= 9)
+					_putchar(' ');
+					_putchar(' ');
+					_putchar('0' + tot)
+				}
+				else if ( tot >= 10  && tot < 100)
 					{
-						_putchar(' ');
-						_putchar(' ');
-						_putchar('0' + tot);
-					}
-
-						else if ( tot > 9 && tot < 100)
-					{
-						_putchar(' ');
-						_putchar('a' + (tot /10));
-						_putchar('a' + (tot % 10));
-					}
-					else if (tot >= 100)
-					{
-						_putchar('0' + (tot / 100));
-						_putchar('0' + ((tot / 10) % 10));
-						_putchar('0' + (tot % 10));
-					}
+					_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar('0' + (tot /10));
+					_putchar('0' + (tot % 10));
+				}
+				else if (tot >= 100)
+				{
+					_putchar(',');
+					_putchar(' ');
+					_putchar((tot / 100) + '0');
+					_putchar(((tot / 10) % 10) + '0');
+					_putchar((tot % 10) + '0');
 				}
 			}
 		_putchar('\n');
