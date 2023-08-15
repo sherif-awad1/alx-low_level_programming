@@ -52,4 +52,10 @@ int _abs(int);
  */
 int print_last_digit(int);
 
+/* jack_buer will count every minut during 24 h
+ */
+void jack_bauer(void);
+
+
+
 #endif
