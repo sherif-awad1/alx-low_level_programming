@@ -19,7 +19,7 @@ void print_times_table(int n)
 				{
 					_putchar('0' + tot);
 				}
-				else if (tot < 10 && cal != 0)
+				else if (tot < 10 && col != 0)
 				{
 					_putchar(',');
 					_putchar(' ');
