@@ -25,14 +25,14 @@ void print_times_table(int n)
 					_putchar(' ');
 					_putchar(' ');
 					_putchar(' ');
-					_putchar('0' + tot);
+					_putchar(tot + '0');
 				}
 				else if ( tot >= 10  && tot < 100)
 					{
 					_putchar(',');
 					_putchar(' ');
 					_putchar(' ');
-					_putchar('0' + (tot /10));
+					_putchar('0' + (tot / 10));
 					_putchar('0' + (tot % 10));
 				}
 				else if (tot >= 100)
