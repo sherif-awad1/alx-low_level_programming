@@ -67,7 +67,13 @@ int add(int, int);
 /* print_to_98 will print from n to 98*/
 
 void print_to_98(int n);
-                          
+
+/*print_times_table- print if n greater than 15 and less than 0
+ * n will chack 
+ * return will be 0
+ */
+
+void print_times_table(int n);
 
 
 #endif
