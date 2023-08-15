@@ -1,5 +1,5 @@
-#ifndef _main_h_
-#define _main_h_
+#ifndef main_h
+#define main_h
 
 /**
  * _putchar - writes the character c to stdout
@@ -15,9 +15,13 @@ int _putchar(char c);
 
 void print_alphabet(void);
 
-/*prints 10 times the alphabet, in lowercase*/
+
+/**
+ * print_alphabet_x10 - print lowercase alphabet ten times
+ */
 
 void print_alphabet_x10(void);
+
 /* islower -  checks for lowercase character
  * @c - to chaeck
  * Return: 1 if lowercase, 0 if uppercase
@@ -25,6 +29,12 @@ void print_alphabet_x10(void);
 
 int _islower(int c);
 
+/*isalpha - to chaeck the alphapt chracter
+ *@c to check
+ *Return 1 if lowercase or upercase - 0 if not alphapet
+ */
+
+ int _isalpha(int c);
 
 
 #endif
