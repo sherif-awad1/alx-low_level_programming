@@ -42,6 +42,10 @@ int _islower(int c);
   *Return 1 if posstive 0 if zero and -1 if negtive
   */
 int print_sign(int n);
+/**
+ * _abs - computes the absolute value
+ */
+int _abs(int);
 
 
 #endif
