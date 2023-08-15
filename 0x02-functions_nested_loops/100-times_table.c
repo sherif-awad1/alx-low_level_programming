@@ -10,14 +10,14 @@ void print_times_table(int n)
 	
 	if (n >= 0 && n <= 15)
 	{
-		for (row = 0; row <= n; row++)
+		for (row = '0'; row <= n; row++)
 		{
 			for (col = 0; col <= n; col++)
 			{
 				tot = (row * col);
 				if (col == 0)
 				{
-					_putchar('0' + tot);
+					_putchar(0 + tot);
 				}
 				else
 				{
