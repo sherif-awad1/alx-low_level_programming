@@ -1,22 +1,13 @@
 #include "main.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-void positive_or_negative(int i)
+/**
+ * main - Test function positive or negative
+ *Return: 0
+ */
+
+int main(void)
 {
-
-	if (i > 0)
-	{
-		printf("%i is positive\n", i);
-	}
-	else if (i == 0)
-	{
-		printf("%i is zero\n", i);
-	}
-	else if (i < 0)
-	{
-		printf("%i is negative\n", i);
-	}
-
+	int i = 0;
+	positive_or_negative(i);
 	return (0);
-
+}
