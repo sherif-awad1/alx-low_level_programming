@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	long int a = 612852475143;
+	unsigned long int a = 612852475143;
 	int b;
 
 	while (a % 2 == 0)
@@ -28,6 +28,6 @@ int main(void)
 		}
 	}
 	if (a > 2)
-		printf("%ld\n", a);
+		printf("%lu\n", a);
 	return (0);
 }
