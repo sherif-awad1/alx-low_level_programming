@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 
 /**
@@ -10,24 +11,27 @@
 
 int main(void)
 {
-	unsigned long int a = 612852475143;
-	int b;
+	long int a = 612852475143;
+	long int b = -1;
+	int c;
 
 	while (a % 2 == 0)
 	{
-		printf("%d ", 2);
+		b = 2;
 		a = a / 2;
 	}
 
-	for (b = 3; b * b <= a; b = b + 2)
+	for (c = 3; c <= sqrt(a); c = c + 2)
 	{
-		while (a % b == 0)
+		while (a % c == 0)
 		{
-			printf("%d ", b);
-			a = a / b;
+			b = c;
+			a = a / c;
 		}
 	}
 	if (a > 2)
-		printf("%lu\n", a);
+		b = a;
+	printf("%ld\n", b);
+
 	return (0);
 }
