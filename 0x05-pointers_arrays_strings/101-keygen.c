@@ -1,6 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * main - Entry point to generates random vaild password
@@ -10,16 +8,23 @@ i *
 
 int main(void)
 {
-	char p[100];
-	int  i;
-	char alpha[] = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+	int p[100];
+	int  i, n, a = 0;
 
 	srand(time(NULL));
 
 	for (i = 0; i < 100; i++)
 	{
-		p[i] = alpha[rand() % strlen(alpha)];
-		printf("%c", p[i]);
+		p[i] = rand() % 78;
+		a = a + p[i];
+		printf("%d", p[i]);
+		if ((2772 -a) < 78)
+		{
+			n =2772 - a;
+			a = a + n;
+			printf("%d", n);
+			break;
+		}
 	}
 	return (0);
 }
