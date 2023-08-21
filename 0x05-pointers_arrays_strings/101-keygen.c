@@ -8,7 +8,7 @@ i *
  * Return: Always 0
  */
 
-void main()
+int main(void)
 {
 	char p[100];
 	int  i;
