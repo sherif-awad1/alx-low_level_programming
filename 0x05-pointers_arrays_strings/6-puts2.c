@@ -9,6 +9,8 @@ void puts2(char *str)
 {
 	int leng, a;
 
+	leng = 0;
+
 	while (str[leng] != '\0')
 	{
 		leng++;
