@@ -16,13 +16,13 @@ int main(void)
 	for (i = 0; i < 100; i++)
 	{
 		p[i] = rand() % 78;
-		a = a + p[i];
-		printf("%d", p[i]);
-		if ((2772 -a) < 78)
+		a +=  (p[i] + '0');
+		putchar(p[i] + '0');
+		if ((2772 - a) - '0' < 78)
 		{
-			n =2772 - a;
-			a = a + n;
-			printf("%d", n);
+			n = 2772 - a - '0';
+			a += n;
+			putchar(n + '0');
 			break;
 		}
 	}
