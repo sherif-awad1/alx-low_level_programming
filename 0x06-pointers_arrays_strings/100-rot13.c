@@ -10,8 +10,8 @@ char *rot13(char *s)
 {
 	int i, j;
 
-	char alpha[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -20,6 +20,7 @@ char *rot13(char *s)
 			if (s[i] == alpha[j])
 			{
 				s[i] = rot[j];
+				break;
 			}
 		}
 	}
