@@ -24,7 +24,7 @@ char *cap_string(char *src)
 			if (src[i] == sp[j])
 			{
 
-				if (src[i++] >= 'a' && src[i++] <= 'z')
+				if (src[i + 1] >= 'a' && src[i + 1] <= 'z')
 				{
 					src[i] = src[i] - 32;
 				}
