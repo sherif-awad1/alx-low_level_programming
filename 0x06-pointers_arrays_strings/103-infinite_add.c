@@ -3,38 +3,27 @@
 /**
  * rev_str -reverse array
  * @n: to check
- * @leng: for string long
- * Return: n as the pointer
+ * Return: 0
  */
 
-char *rev_str(char *n, int leng)
+void rev_str(char *n)
 {
-	int i, j;
+	int i = 0;
+	int j = 0;
 	char tm;
 
-	for (i = 0; i < leng / 2; j++)
+	while (*(n + i) != '\0')
 	{
-		tm = n[i];
-		j = i - 1;
-		n[i] = n[leng - j];
-		n[leng - j] = tm;
+		i++;
 	}
-	return (n);
-}
+	i--;
 
-/**
- * calc_leng - calclate the string length
- * @n: is the array
- * Return: leng
- */
-
-int calc_leng(char *n)
-{
-	int leng = 0;
-
-	while (*(n++))
-		leng++;
-	return (leng);
+	for (j = 0; j < i; j++, i--)
+	{
+		tm = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = tm;
+	}
 }
 
 
@@ -47,28 +36,45 @@ int calc_leng(char *n)
 * Return: will be r
 */
 
-
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int leng1 = calc_leng(n1), leng2 = calc_leng(n2), car = 0, sum, i = 0, d1, d2;
-	int max_leng = leng1 > leng2 ? leng1 : leng2;
+	int m = 0, i = 0, j = 0, k = 0;
+	int q = 0, w = 0, tot = 0;
 
-	while (leng2 >= 0 || leng1 >= 0 || car)
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
+		return (0);
+	while (j >= 0 || i >= 0 || m == 1)
 	{
-		d1 = leng1 > 0 ? n1[leng1 - 1] - '0' : 0;
-		d2 = leng2 > 0 ? n2[leng2 - 1] - '0' : 0;
-		sum = car + d1 + d2;
-
-		if (i + 1 >= size_r)
+		if (i < 0)
+			q = 0;
+		else
+			q = *(n1 + i) - '0';
+		if (j < 0)
+			w = 0;
+		else
+			w = *(n2 + j) - '0';
+		tot = q + w + m;
+		if (tot >= 10)
+			m = 1;
+		else
+			m = 0;
+		if (k >= (size_r - 1))
 			return (0);
-		r[i++] = (sum % 10) + '0';
-		car = sum / 10;
-		if (leng1 > 0)
-			leng1--;
-		if (leng2 > 0)
-			leng2--;
+		*(r + k) = (tot % 10) + '0';
+		k++;
+		j--;
+		i--;
 	}
-	r[i] = '\0';
-	return (rev_str(r, i));
+	if (k == size_r)
+		return (0);
+	*(r + k) = '\0';
+	rev_str(r);
+	return (r);
 }
+
