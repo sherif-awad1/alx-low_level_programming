@@ -1,5 +1,5 @@
 #include "main.h"
-#define NULL 0L
+
 /**
  * *_strncpy - copies a sting
  * @dest: to check
