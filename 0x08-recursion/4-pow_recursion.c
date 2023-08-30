@@ -9,7 +9,7 @@
 
 int _pow_recursion(int x, int y)
 {
-	float tmp;
+
 
 	if (y == 0)
 		return (1);
