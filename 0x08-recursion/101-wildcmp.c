@@ -61,11 +61,9 @@ char *star_recursion(char *s2)
 
 int rel_cmp(char *s1, char *s2)
 {
-	int val;
+	int val = 0;
 
-	val = 0;
-
-	if (s1 == 0)
+	if (*s1 == 0)
 		return (0);
 	if (*s1 == *s2)
 		val += wildcmp(s1 + 1, s2 + 1);
