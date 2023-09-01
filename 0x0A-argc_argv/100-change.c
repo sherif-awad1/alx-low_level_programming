@@ -13,33 +13,31 @@ int main(int argc, char *argv[])
 {
 	int coin[] = {25, 10, 5, 2, 1};
 
-	int i, count = 0, coins = atoi(argv[1]);
+	int i, count = 0, coins;
 
-	if (argc > 1)
+	if (argc != 2)
 	{
-		if (coins < 0)
-		{
-			printf("0\n");
-			return (0);
-		}
-
-		else if (coins > 0)
-		{
-			for (i = 0; i < 5; i++)
-		{
-			while (coins >= coin[i])
-			{
-				count++;
-				coins -= coin[i];
-			}
-		}
-		}
-	}
-	else
-	{
-		printf("Error");
+		printf("Error\n");
 		return (1);
 	}
+
+	coins = atoi(argv[1]);
+
+	if (coins < 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+
+	for (i = 0; i < 5 && coins >= 0; i++)
+	{
+		while (coins >= coin[i])
+		{
+			count++;
+			coins -= coin[i];
+		}
+	}
+
 	printf("%d\n", count);
 	return (0);
 }
