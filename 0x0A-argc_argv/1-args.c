@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
- * mian - to print the number of arguments
- * @argc: count the number of argmeant 
- * @argv: point to the variabal
+ * main - to print the number of arguments
+ * @argc: count the number of argmeant
+ * * @argv: point to the variabal
  * Return: Always 0
  */
 
