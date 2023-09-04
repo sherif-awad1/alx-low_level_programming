@@ -5,7 +5,7 @@
  * *create_array - creat an array of chars
  * @size: longeth of the array
  * @c: specigic char
- * Return: 0 if size 0 return recursion
+ * Return: 0 if size 0 else return s
  */
 
 char *create_array(unsigned int size, char c)
