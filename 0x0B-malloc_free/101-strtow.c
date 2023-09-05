@@ -4,24 +4,24 @@
 /**
  * count - count the words
  * @str: the string
+ *
  * Return: num
  */
 
 int count(char *str)
 {
-	int i, num = 0;
+	int i, f = 0, num = 0;
 
-	for (i = 0; str[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == ' ')
+			f = 0;
+		else if (f == 0)
 		{
-			if (str[i + 1] != ' ' && str[i + 1] != '\0')
-				num++;
-		}
-		else if (i == 0)
+			f = 1;
 			num++;
+		}
 	}
-	num++;
 	return (num);
 }
 
@@ -33,42 +33,42 @@ int count(char *str)
 
 char **strtow(char *str)
 {
-	int u, i, o, p, num = 0, l = 0;
-	char **strt;
+	int i, o = 0, leng = 0, num, p = 0, rt, nd;
+	char **strt, *st;
 
-	if (str == NULL || *str == '\0')
-		return (NULL);
-	strt = (char **)malloc(sizeof(char *) * num);
+	while (*(str + leng))
+		leng++;
 	num = count(str);
-	if (num == 1 || strt == NULL)
+	if (num == 0)
 		return (NULL);
-	strt[num - 1] = NULL;
-	u = 0;
-	while (str[u])
+
+	strt = (char **)malloc(sizeof(char *) * (num + 1));
+
+	if (strt == NULL)
+		return (NULL);
+
+	for (i = 0; i <= leng; i++)
 	{
-		if (str[u] != ' ' && (u == 0 || str[u - 1] == ' '))
+		if (str[i] == ' ' || str[i] == '\0')
 		{
-			for (i = 0; str[u + i] != ' ' && str[u + i]; i++)
-				;
-			i++;
-			strt[l] = (char *)malloc(i * sizeof(char));
-			i--;
-			if (strt[l] == NULL)
+			if (p)
 			{
-				for (o = 0; o < l; o++)
-					free(strt[o]);
-				free(strt[num - 1]);
-				free(strt);
-				return (NULL);
+				nd = i;
+				st = (char *)malloc((p + 1) * sizeof(char));
+				if (st == NULL)
+					return (NULL);
+				while (rt < nd)
+					*st++ = str[rt++];
+				*str = '\0';
+				strt[o] = st - p;
+				o++;
+				p = 0;
 			}
-			for (p = 0; p > i; p++)
-				strt[l][p] = str[u + p];
-			strt[l][p] = '\0';
-			l++;
-			u += i;
 		}
-		else
-			u++;
+		else if (p++ == 0)
+			rt = i;
 	}
+	strt[o] = NULL;
+
 	return (strt);
 }
