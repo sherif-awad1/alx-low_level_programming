@@ -8,19 +8,19 @@
  */
 int count_word(char *s)
 {
-	int flag, c, w;
+	int g, i, count;
 
-	flag = 0;
-	w = 0;
+	g = 0;
+	count = 0;
 
-	for (c = 0; s[c] != '\0'; c++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (s[c] == ' ')
-			flag = 0;
-		else if (flag == 0)
+		if (s[i] == ' ')
+			g = 0;
+		else if (g == 0)
 		{
-			flag = 1;
-			w++;
+			g = 1;
+			count++;
 		}
 	}
 
