@@ -2,73 +2,73 @@
 #include <stdlib.h>
 
 /**
- * count - count the words
- * @str: the string
+ * word_count - Counts the number of words in a string
+ * @str: The string to count
  *
- * Return: num
+ * Return: The number of words in the string
  */
-
-int count(char *str)
+int word_count(char *str)
 {
-	int i, f = 0, num = 0;
+	int i, wc = 0, in_word = 0;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; ++i)
 	{
 		if (str[i] == ' ')
-			f = 0;
-		else if (f == 0)
+			in_word = 0;
+		else if (in_word == 0)
 		{
-			f = 1;
-			num++;
+			in_word = 1;
+			++wc;
 		}
 	}
-	return (num);
+	return (wc);
 }
 
 /**
- * **strtow - splits a string int words
- * @str: the string we splite
- * Return: Null or pointer
+ * strtow - Splits a string into words
+ * @str: The string to split
+ *
+ * Return: A pointer to an array of strings (words)
  */
-
 char **strtow(char *str)
 {
-	int i, o = 0, leng = 0, num, p = 0, rt, nd;
-	char **strt, *st;
+	int i = 0, j, k, wc, len = 0, in_word = 0;
+	char **words;
 
-	while (*(str + leng))
-		leng++;
-	num = count(str);
-	if (num == 0)
+	if (str == NULL || str[0] == '\0')
 		return (NULL);
-
-	strt = (char **)malloc(sizeof(char *) * (num + 1));
-
-	if (strt == NULL)
+	wc = word_count(str);
+	words = malloc(sizeof(char *) * (wc + 1));
+	if (words == NULL)
 		return (NULL);
-
-	for (i = 0; i <= leng; i++)
+	for (j = 0; str[j] != '\0'; ++j)
 	{
-		if (str[i] == ' ' || str[i] == '\0')
+		if (str[j] == ' ')
+			in_word = 0;
+		else
 		{
-			if (p)
+			if (in_word == 0)
 			{
-				nd = i;
-				st = (char *)malloc((p + 1) * sizeof(char));
-				if (st == NULL)
+				while (str[j + len] != ' ' && str[j + len] != '\0')
+					++len;
+				words[i] = malloc(sizeof(char) * (len + 1));
+				if (words[i] == NULL)
+				{
+					for (k = 0; k < i; ++k)
+						free(words[k]);
+					free(words);
 					return (NULL);
-				while (rt < nd)
-					*st++ = str[rt++];
-				*str = '\0';
-				strt[o] = st - p;
-				o++;
-				p = 0;
+				}
+				for (k = 0; k < len; ++k)
+				{
+					words[i][k] = str[j + k];
+				}
+				words[i][len] = '\0';
+				++i;
 			}
+			in_word = 1;
 		}
-		else if (p++ == 0)
-			rt = i;
 	}
-	strt[o] = NULL;
-
-	return (strt);
+	words[wc] = NULL;
+	return (words);
 }
