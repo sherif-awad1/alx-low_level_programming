@@ -9,7 +9,7 @@
 
 int _strleng(char *str)
 {
-	unsigned int leng;
+	unsigned int leng = 0;
 
 	while (str[leng] != '\0')
 	{
