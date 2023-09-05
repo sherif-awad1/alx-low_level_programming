@@ -49,7 +49,7 @@ char **strtow(char *str)
 		{
 			if (in_word == 0)
 			{
-				while (!((str[j + len] >= 'a' && str[j + len] <= 'z') ||
+				while (((str[j + len] >= 'a' && str[j + len] <= 'z') ||
 							(str[j + len] >= 'A' && str[j + len] <= 'Z')) &&
 						str[j + len] != '\0')
 					++len;
