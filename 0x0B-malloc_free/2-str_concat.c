@@ -2,23 +2,6 @@
 #include <stdlib.h>
 
 /**
- * _strleng - count the length of string
- * @str: string we count
- * Return: the string
- */
-
-int _strleng(char *str)
-{
-	unsigned int leng = 0;
-
-	while (str[leng] != '\0')
-	{
-		leng++;
-	}
-	return (leng);
-}
-
-/**
  * *str_concat - concatenates two strings
  * @s1: first strange to concat
  * @s2: the other strange
@@ -27,42 +10,41 @@ int _strleng(char *str)
 
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int leng1, leng2, i;
+	unsigned int leng1, leng2, i, k;
 	char *s3;
-
 	if (s1 == NULL)
-	{
-		s1 = '\0';
-	}
-
+		s1 = "";
 	if (s2 == NULL)
-	{
-		s2 = '\0';
-	}
+		s2 = "";
 
-	leng1 = _strleng(s1);
-	leng2 = _strleng(s2);
+	leng1 = 0;
+	leng2 = 0;
+	i = 0;
+	k = 0;
 
-	s3 = malloc((leng1 + leng2) * sizeof(char) + 1);
+	while (*(s1 + leng1))
+		leng1++;
+	while (*(s2 + leng2))
+		leng2++;
+
+	s3 = malloc((leng1 + leng2) + 1);
 
 	if (s3 == NULL)
 	{
-		return (0);
+		return (NULL);
 	}
 
-	for (i = 0; i <= leng1 + leng2; i++)
+	while (i < leng1)
 	{
-		if (i < leng1)
-		{
-			s3[i] = s1[i];
-		}
-		else
-		{
-			s3[i] = s2[i - leng1];
-		}
+		*(s3 + i) = *(s1 + i);
+		i++;
 	}
-	s3[i] = '\0';
+
+	while (k <= leng2)
+	{
+		*(s3 + k + leng1) = *(s2 + k);
+		k++;
+	}
 
 	return (s3);
 }
-
