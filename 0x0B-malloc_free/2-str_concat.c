@@ -29,18 +29,21 @@ char *str_concat(char *s1, char *s2)
 {
 	unsigned int leng1, leng2, i;
 	char *s3;
-	leng1 = _strleng(s1);
-	leng2 = _strleng(s2);
-	
 
 	if (s1 == NULL)
-		s1 = s2;
-	if (s2 == NULL)
 	{
-		s2 = s1;
+                s1 = '\0';
 	}
 
-	s3 = malloc((leng1 + leng2 + 1) * sizeof(char));
+        if (s2 == NULL)
+        {
+                s2 = '\0';
+        }
+
+	leng1 = _strleng(s1);
+	leng2 = _strleng(s2);
+
+	s3 = malloc((leng1 + leng2) * sizeof(char) + 1);
 
 	if (s3 == NULL)
 		return(0);
