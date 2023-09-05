@@ -1,23 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
 
-/**
- * *_strleng - count the length of string
- * @str: point to the string
- * Return: leng
- */
-
-int _strleng(char *str)
-{
-	unsigned int leng = 0;
-
-	while (str[leng])
-	{
-		leng++;
-	}
-
-	return (leng);
-}
 
 /**
  * *_strdup - return pointer to a new string
@@ -31,14 +14,18 @@ char *_strdup(char *str)
 	char *sr;
 
 	i = 0;
-	leng = _strleng(str);
+	leng = 0;
 
 	if (str == NULL)
 		return (NULL);
 
+	while (str[leng] != '\0')
+	{
+		leng++;
+	}
 
 	sr = malloc((leng + 1) * sizeof(char));
-	
+
 
 	if (sr == NULL)
 		return (NULL);
