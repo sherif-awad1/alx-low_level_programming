@@ -11,7 +11,7 @@ int _strleng(char *str)
 {
 	unsigned int leng = 0;
 
-	while (str[leng] != '\0')
+	while (str[leng])
 	{
 		leng++;
 	}
@@ -27,7 +27,7 @@ int _strleng(char *str)
 
 char *_strdup(char *str)
 {
-	unsigned int i, leng = _strleng(str);
+	unsigned int i = 0, leng = _strleng(str);
 	char *sr = malloc(leng * sizeof(char));
 
 	if (str == NULL || sr == NULL)
