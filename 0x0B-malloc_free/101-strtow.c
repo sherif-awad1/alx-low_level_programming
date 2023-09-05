@@ -49,7 +49,9 @@ char **strtow(char *str)
 		{
 			if (in_word == 0)
 			{
-				while (str[j + len] != ' ' && str[j + len] != '\0')
+				while (!((str[j + len] >= 'a' && str[j + len] <= 'z') ||
+							(str[j + len] >= 'A' && str[j + len] <= 'Z')) &&
+						str[j + len] != '\0')
 					++len;
 				words[i] = malloc(sizeof(char) * (len + 1));
 				if (words[i] == NULL)
@@ -60,9 +62,7 @@ char **strtow(char *str)
 					return (NULL);
 				}
 				for (k = 0; k < len; ++k)
-				{
 					words[i][k] = str[j + k];
-				}
 				words[i][len] = '\0';
 				++i;
 			}
