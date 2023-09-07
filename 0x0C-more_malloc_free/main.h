@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAiN_H
 
+#include <ctype.h>
 #define min(x, y) (((x) < (y)) ? (x) : (y))
 
 int _putchar(char c);

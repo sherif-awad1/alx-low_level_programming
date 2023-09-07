@@ -204,24 +204,10 @@ void add_n(char *fprod, char *nprod, int nleng)
 int main(int argc, char *argv[])
 {
 	char *fprod, *nprod;
-	int s, i, d, z = 0, j;
+	int s, i, d, z = 0;
 
 	if (argc != 3)
 		err_r();
-	for (j = 0; argv[1][j]; j++)
-	{
-		if (!isdigit(argv[1][j]))
-		{
-			err_r();
-		}
-	}
-	for (j = 0; argv[2][j]; j++)
-	{
-		if (!isdigit(argv[2][j]))
-		{
-			err_r();
-		}
-	}
 
 	if (*(argv[1]) == '0')
 		argv[1] = is_zero(argv[1]);
