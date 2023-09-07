@@ -102,15 +102,15 @@ void print_s(char *s)
  */
 void err_r(void)
 {
-        print_s("Error");
-        exit(98);
+	print_s("Error");
+	exit(98);
 }
 
 
 /**
  * _prod - Multiplies numbers by a single digit.
  * @prod: The buffer to store the result.
- * @mult: The string of numbers.
+ * @mul: The string of numbers.
  * @d: The digit.
  * @z: number leading zero
  */
