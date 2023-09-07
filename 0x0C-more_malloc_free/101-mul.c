@@ -19,45 +19,49 @@ void print_s(char *s)
 }
 
 /**
- * _atoi - change the string to int
- * @c: the string
- * Return: the int of the string
+ * is_d - check if digit
+ * @d: the string
+ * Return: 0 or 1 if it digit
  */
 
-int _atoi(char *c)
+int is_d(char *d)
 {
-	int s = 1;
-	unsigned long int r = 0, f, i;
+	int i = 0;
 
-	for (f = 0; !(c[f] >= 48) && (c[f] <= 57) ; f++)
+	while (d[i])
 	{
-		if (c[f] == '-')
-			s *= -1;
+		if (d[i] < '0' || d[i] > '9')
+			return (0);
+		i++;
 	}
-	for (i = f; (c[i] >= 48) && (c[i] <= 57); i++)
-	{
-		r *= 10;
-		r += (c[i] - 48);
-	}
-	return (s * r);
+	return (1);
 }
 
 /**
- *print_i - print the integer
- *@n: integer
+ * err_r - print the error
+ *
  */
-
-void print_i(unsigned long int n)
+void err_r(void)
 {
-	unsigned long int dev = 1, i, r;
+	print_s("Error ");
+	exit(98);
+}
 
-	for (i = 0; n / dev > 9; i++, dev *= 10)
-		;
-	for (; dev >= 1; n %= dev, dev /= 10)
+/**
+ * _strleng - returns the length of a string
+ * @c: string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strleng(char *c)
+{
+	int leng = 0;
+
+	while (c[leng] != '\0')
 	{
-		r = n / dev;
-		_putchar('0' + r);
+		leng++;
 	}
+	return (leng);
 }
 
 /**
@@ -69,12 +73,44 @@ void print_i(unsigned long int n)
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	char *str1, *str2;
+	int leng1, leng2, leng, i, arry, d1, d2, *result, a = 0;
+
+	str1 = argv[1], str2 = argv[2];
+	if (argc != 3 || !is_d(str1) || !is_d(str2))
+		err_r();
+	leng1 = _strleng(str1);
+	leng2 = _strleng(str2);
+	leng = leng1 + leng2 + 1;
+	result = malloc(sizeof(int) * leng);
+	if (!result)
+		return (1);
+	for (i = 0; i <= leng1 + leng2; i++)
+		result[i] = 0;
+	for (leng1 = leng1 - 1; leng1 >= 0; leng1--)
 	{
-		print_s("Error ");
-		exit(98);
+		d1 = str1[leng1] - '0';
+		arry = 0;
+		for (leng2 = _strleng(str2) - 1; leng2 >= 0; leng2--)
+		{
+			d2 = str2[leng2] - '0';
+			arry += result[leng1 + leng2 + 1] + (d1 * d2);
+			result[leng1 + leng2 + 1] = arry % 10;
+			arry /= 10;
+		}
+		if (arry > 0)
+			result[leng1 + leng2 + 1] += arry;
 	}
-	print_i(_atoi(argv[1]) * _atoi(argv[2]));
+	for (i = 0; i < leng - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
 	_putchar('\n');
+	free(result);
 	return (0);
 }
