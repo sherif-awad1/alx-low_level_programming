@@ -3,16 +3,16 @@
 
 /**
  * print_s - print the string
- * @n: pointter to the string
+ * @s: pointter to the string
  */
 
-void print_s(char *n)
+void print_s(char *s)
 {
 	int i = 0;
 
-	while (n[i])
+	while (s[i])
 	{
-		_putchar(n[i]);
+		_putchar(s[i]);
 		i++;
 	}
 	_putchar('\n');
@@ -59,7 +59,6 @@ void print_i(unsigned long int n)
 		_putchar('0' + r);
 	}
 }
-
 
 /**
  * main - for multiplay 2 integer
