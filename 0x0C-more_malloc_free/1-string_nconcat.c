@@ -1,0 +1,46 @@
+#include "main.h"
+#include <stdlib.h>
+
+/**
+ * *string_nconcat - concarenater two string
+ * @s1: first string
+ * @s2: 2nd string
+ * @n: number of character in every string should be print
+ * Return: NULL if fail or pointer if success
+ */
+
+
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	unsigned int leng1 = 0, leng2 = 0, i, mal;
+	char *s3;
+
+	if (s1 == NULL)
+		s1 = " ";
+	if (s2 == NULL)
+		s2 = " ";
+
+	while (*(s1 + leng1) != '\0')
+		leng1++;
+	while (*(s2 + leng2) != '\0')
+		leng2++;
+
+	if (leng2 >= n)
+		leng2 = n;
+	mal = n + leng1 + 1;
+	s3 = malloc(sizeof(char) * mal);
+
+	if (s3 == NULL)
+		return (s3);
+
+	for (i = 0; i < leng1; i++)
+	{
+		s3[i] = s1[i];
+	}
+
+	for (i = 0; i < n; i++)
+		s3[i + leng1] = s2[i];
+
+	s3[i + leng1] = '\0';
+	return (s3);
+}
