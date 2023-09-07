@@ -1,5 +1,5 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
  * *string_nconcat - concarenater two string
@@ -20,7 +20,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	while(*(s1 + leng1) != '\0')
+	while (*(s1 + leng1) != '\0')
 		leng1++;
 	while (*(s2 + leng2) != '\0')
 		leng2++;
