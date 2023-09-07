@@ -1,6 +1,84 @@
 #include "main.h"
 #include <stdlib.h>
 
+int _strleng(char *s);
+char *create_array(int s);
+char *is_zero(char *s);
+void _prod(char *prod, char *mul, int d, int z);
+void add_n(char *fprod, char *nprod, int nleng);
+int is_d(char s);
+void print_s(char *s);
+void err_r(void);
+
+
+/**
+ * _strleng - the length of a string.
+ * @s: The string
+ * Return: length of string.
+ */
+int _strleng(char *s)
+{
+	int leng = 0;
+
+	while (*s++)
+		leng++;
+
+	return (leng);
+}
+
+/**
+ * create_array - array of chars
+ * @s: size of array
+ * Return: pointer to array.
+ */
+char *create_array(int s)
+{
+	char *array;
+	int i;
+
+	array = malloc(sizeof(char) * s);
+
+	if (array == NULL)
+		exit(98);
+
+	for (i = 0; i < (s - 1); i++)
+		array[i] = 'a';
+
+	array[i] = '\0';
+
+	return (array);
+}
+
+/**
+ * is_zero - a string of numbers containt.
+ * @s: string of numbers
+ * Return: pointer to non-zero element.
+ */
+char *is_zero(char *s)
+{
+	while (*s && *s == '0')
+		s++;
+
+	return (s);
+}
+
+/**
+ * is_d - digit character to int.
+ * @s: The character
+ * Return: The converted int.
+ */
+int is_d(char s)
+{
+	int d = s - '0';
+
+	if (d < 0 || d > 9)
+	{
+		err_r();
+	}
+
+	return (d);
+}
+
 /**
  * print_s - print the string
  * @s: pointter to the string
@@ -19,49 +97,101 @@ void print_s(char *s)
 }
 
 /**
- * is_d - check if digit
- * @d: the string
- * Return: 0 or 1 if it digit
- */
-
-int is_d(char *d)
-{
-	int i = 0;
-
-	while (d[i])
-	{
-		if (d[i] < '0' || d[i] > '9')
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-/**
  * err_r - print the error
  *
  */
 void err_r(void)
 {
-	print_s("Error ");
-	exit(98);
+        print_s("Error");
+        exit(98);
+}
+
+
+/**
+ * _prod - Multiplies numbers by a single digit.
+ * @prod: The buffer to store the result.
+ * @mult: The string of numbers.
+ * @d: The digit.
+ * @z: number leading zero
+ */
+void _prod(char *prod, char *mul, int d, int z)
+{
+	int mleng, n, t = 0;
+
+	mleng = _strleng(mul) - 1;
+	mul += mleng;
+
+	while (*prod)
+	{
+		*prod = 'a';
+		prod++;
+	}
+
+	prod--;
+
+	while (z--)
+	{
+		*prod = '0';
+		prod--;
+	}
+
+	for (; mleng >= 0; mleng--, mul--, prod--)
+	{
+		if (*mul < '0' || *mul > '9')
+		{
+			err_r();
+		}
+
+		n = (*mul - '0') * d;
+		n += t;
+		*prod = (n % 10) + '0';
+		t = n / 10;
+	}
+
+	if (t)
+		*prod = (t % 10) + '0';
 }
 
 /**
- * _strleng - returns the length of a string
- * @c: string to evaluate
- *
- * Return: the length of the string
+ * add_n - Add the numbers in strings.
+ * @fprod: storing final product.
+ * @nprod: next to be added.
+ * @nleng: length of next prod.
  */
-int _strleng(char *c)
+void add_n(char *fprod, char *nprod, int nleng)
 {
-	int leng = 0;
+	int n, t = 0;
 
-	while (c[leng] != '\0')
+	while (*(fprod + 1))
+		fprod++;
+
+	while (*(nprod + 1))
+		nprod++;
+
+	for (; *fprod != 'a'; fprod--)
 	{
-		leng++;
+		n = (*fprod - '0') + (*nprod - '0');
+		n += t;
+		*fprod = (n % 10) + '0';
+		t = n / 10;
+
+		nprod--;
+		nleng--;
 	}
-	return (leng);
+
+	for (; nleng >= 0 && *nprod != 'a'; nleng--)
+	{
+		n = (*nprod - '0');
+		n += t;
+		*fprod = (n % 10) + '0';
+		t = n / 10;
+
+		fprod--;
+		nprod--;
+	}
+
+	if (t)
+		*fprod = (t % 10) + '0';
 }
 
 /**
@@ -73,44 +203,42 @@ int _strleng(char *c)
 
 int main(int argc, char *argv[])
 {
-	char *str1, *str2;
-	int leng1, leng2, leng, i, arry, d1, d2, *result, a = 0;
+	char *fprod, *nprod;
+	int s, i, d, z = 0;
 
-	str1 = argv[1], str2 = argv[2];
-	if (argc != 3 || !is_d(str1) || !is_d(str2))
+	if (argc != 3)
 		err_r();
-	leng1 = _strleng(str1);
-	leng2 = _strleng(str2);
-	leng = leng1 + leng2 + 1;
-	result = malloc(sizeof(int) * leng);
-	if (!result)
-		return (1);
-	for (i = 0; i <= leng1 + leng2; i++)
-		result[i] = 0;
-	for (leng1 = leng1 - 1; leng1 >= 0; leng1--)
+
+	if (*(argv[1]) == '0')
+		argv[1] = is_zero(argv[1]);
+	if (*(argv[2]) == '0')
+		argv[2] = is_zero(argv[2]);
+	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
 	{
-		d1 = str1[leng1] - '0';
-		arry = 0;
-		for (leng2 = _strleng(str2) - 1; leng2 >= 0; leng2--)
-		{
-			d2 = str2[leng2] - '0';
-			arry += result[leng1 + leng2 + 1] + (d1 * d2);
-			result[leng1 + leng2 + 1] = arry % 10;
-			arry /= 10;
-		}
-		if (arry > 0)
-			result[leng1 + leng2 + 1] += arry;
-	}
-	for (i = 0; i < leng - 1; i++)
-	{
-		if (result[i])
-			a = 1;
-		if (a)
-			_putchar(result[i] + '0');
-	}
-	if (!a)
 		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
+
+	s = _strleng(argv[1]) + _strleng(argv[2]);
+	fprod = create_array(s + 1);
+	nprod = create_array(s + 1);
+
+	for (i = _strleng(argv[2]) - 1; i >= 0; i--)
+	{
+		d = is_d(*(argv[2] + i));
+		_prod(nprod, argv[1], d, z++);
+		add_n(fprod, nprod, s - 1);
+	}
+	for (i = 0; fprod[i]; i++)
+	{
+		if (fprod[i] != 'a')
+			_putchar(fprod[i]);
+	}
 	_putchar('\n');
-	free(result);
+
+	free(nprod);
+	free(fprod);
+
 	return (0);
 }
