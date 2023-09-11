@@ -1,12 +1,11 @@
 #ifndef DOG_H
 #define DOG_H
 
-typedef stract
-{
+typedef struct dog {
 	char *name;
 	float age;
 	char *owner;
 } dog;
 
 
-#endif /* stract dog
+#endif /* stract dog */
