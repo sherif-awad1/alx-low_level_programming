@@ -15,3 +15,5 @@ typedef struct dog
 	char *owner;
 } dog;
 #endif /* stract dog - define stract with name age and owner */
+
+void init_dog(struct dog *d, char *name, float age, char *owner);
