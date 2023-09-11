@@ -34,7 +34,14 @@ void print_dog(struct dog *d);
  * dog_t - typedef for dog struct
  */
 typedef struct dog dog_t;
-
+/**
+ * *new_dog - creat a new dog
+ * @name: dog name
+ * @age: dog age
+ * @owner: owner name
+ * Return: NULL if fail or dog for new dog
+ */
+dog_t *new_dog(char *name, float age, char *owner);
 
 
 #endif /* stract dog - define stract with name age and owner */
