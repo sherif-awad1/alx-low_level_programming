@@ -34,7 +34,7 @@ void print_dog(struct dog *d);
  * struct dog - define new neme
  * @dog_t: new struct name
  */
-typedef struct dog dog_t;	
+typedef struct dog dog_t;
 
 
 
