@@ -30,8 +30,11 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
  * @d: pointer to the struct
  */
 void print_dog(struct dog *d);
-
-
+/**
+ * struct dog - define new neme
+ * @dog_t: new struct name
+ */
+typedef struct dog dog_t;	
 
 
 
