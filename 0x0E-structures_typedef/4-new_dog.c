@@ -8,10 +8,12 @@
  */
 int _strleng(char *s)
 {
-	int leng;
+	int leng = 0;
 
-	for (leng = 0; s[leng] != '\0'; leng++)
-		;
+	while (*s++)
+	{
+		leng++;
+	}
 	return (leng);
 }
 
@@ -24,15 +26,13 @@ int _strleng(char *s)
 
 char *_strcpy(char *end, char *start)
 {
-	int i, leng;
+	int i;
 
-	leng = _strleng(start);
-
-	for (i = 0; i < leng; i++)
+	for (i = 0; start[i]; i++)
 	{
 		end[i] = start[i];
 	}
-	start[i] = '\0';
+	end[i] = '\0';
 
 	return (end);
 }
