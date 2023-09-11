@@ -42,6 +42,19 @@ typedef struct dog dog_t;
  * Return: NULL if fail or dog for new dog
  */
 dog_t *new_dog(char *name, float age, char *owner);
+/**
+ * _strleng - get the length of the string
+ * @s: the string should get length
+ * Return: leng
+ */
+int _strleng(char *s);
+/**
+ * *_strcpy - to copy strang
+ * @end: copy the string to it
+ * @start: the string we want to copy
+ * Return: the string copy
+ */
+char *_strcpy(char *end, char *start);
 
 
 #endif /* stract dog - define stract with name age and owner */
