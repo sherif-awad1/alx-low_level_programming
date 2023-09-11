@@ -31,8 +31,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner);
  */
 void print_dog(struct dog *d);
 /**
- * struct dog - define new neme
- * @dog_t: new struct name
+ * dog_t - typedef for dog struct
  */
 typedef struct dog dog_t;
 
