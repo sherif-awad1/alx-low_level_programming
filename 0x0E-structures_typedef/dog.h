@@ -56,6 +56,12 @@ int _strleng(char *s);
  */
 char *_strcpy(char *end, char *start);
 
+/**
+ * free_dog - to free memory allocated
+ * @d: pointer to the struct
+ */
+void free_dog(dog_t *d);
+
 
 #endif /* stract dog - define stract with name age and owner */
 
