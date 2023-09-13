@@ -11,8 +11,7 @@
 int main(int argc, char *argv[])
 {
 	int byt, i;
-	char opcode;
-	
+	unsigned char opcode;
 
 	int (*ptr)(int, char **) = main;
 
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < byt; i++)
 	{
-		opcode = *(char *)ptr;
+		opcode = *(unsigned char *)ptr;
 		printf("%.2x", opcode);
 
 		if (i == byt)
