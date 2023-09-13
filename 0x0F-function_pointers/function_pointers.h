@@ -1,11 +1,7 @@
 #ifndef FUNCTION_POINTERS_H
 #define FUNCTION_POINTERS_H
 
-/**
- * _putchar - print a leater
- * @c: the letter to print
- * Retrun: print formila
- */
+
 int _putchar(char c);
 
 /**
