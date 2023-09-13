@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		opcode = *(unsigned char *)ptr;
 		printf("%.2x", opcode);
 
-		if (i == byt)
+		if (i == byt - 1)
 			continue;
 
 		printf("\t");
