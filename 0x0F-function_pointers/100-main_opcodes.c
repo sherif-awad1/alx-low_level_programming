@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		if (i == byt - 1)
 			continue;
 
-		printf("\t");
+		printf(" ");
 
 		ptr++;
 	}
