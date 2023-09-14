@@ -30,15 +30,42 @@ void print_numbers(const char *separator, const unsigned int n, ...);
  */
 void print_strings(const char *separator, const unsigned int n, ...);
 
+/**
+ * struct print - A new struct type defining a pr.
+ * @datyp: data type.
+ * @pr: A function pointer to a function that prints
+ */
+typedef struct print
+{
+	char *datyp;
+	void (*pr)(va_list argv);
 
-
-
-
-
-
-
-
-
+} pri_t;
+/**
+ * print_char - to print char
+ * @argv: list point to the charactor to print
+ */
+void print_char(va_list argv);
+/**
+ * print_integer - print integer number
+ * @argv: list point to the number to print
+ */
+void print_integer(va_list argv);
+/**
+ * print_float - to print float point number
+ * @argv: list point to float
+ */
+void print_float(va_list argv);
+/**
+ * print_string - to print string
+ * @argv: point to list string
+ */
+void print_string(va_list argv);
+/**
+ * print_all - print any thing
+ * @format: list of types of arguments
+ */
+void print_all(const char * const format, ...);
 
 
 
