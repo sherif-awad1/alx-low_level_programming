@@ -23,7 +23,12 @@ int sum_them_all(const unsigned int n, ...);
  */
 void print_numbers(const char *separator, const unsigned int n, ...);
 
-
+/**
+ * print_strings - prints strings follow by new line
+ * @separator: string sperit betwen the string
+ * @n: number of argment passed
+ */
+void print_strings(const char *separator, const unsigned int n, ...);
 
 
 
