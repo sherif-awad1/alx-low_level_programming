@@ -16,6 +16,12 @@ int _putchar(char c);
  * Return: 0 if n = 0 else return sum
  */
 int sum_them_all(const unsigned int n, ...);
+/**
+ * print_numbers - prints numbers follow by new line
+ * @separator: string to print between the nunber
+ * @n: number of integer pass by the function
+ */
+void print_numbers(const char *separator, const unsigned int n, ...);
 
 
 
