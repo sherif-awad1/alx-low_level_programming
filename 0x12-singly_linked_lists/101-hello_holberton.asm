@@ -8,4 +8,4 @@
 		mov	eax, 0
 		ret
 
-		fmt: db `Hello, Holberton\n`,0
+		fmt: db `\Hello, Holberton`,0
