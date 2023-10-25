@@ -25,7 +25,7 @@ int _strlen_recursion(char *s)
 int pal_helper(char *s, int str, int end)
 {
 	if (str >= end)
-		return (0);
+		return (1);
 	if (s[str] != s[end])
 		return (0);
 	return (pal_helper(s, str + 1, end - 1));
