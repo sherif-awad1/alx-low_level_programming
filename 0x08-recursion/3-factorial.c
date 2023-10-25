@@ -1,5 +1,5 @@
 /*
-* File: _putchar.c
+* File: factorial.c
 * Author: Sherif Awad
 */
 #include "main.h"
