@@ -1,5 +1,5 @@
 /*
-* File: _putchar.c
+* File: is_palindrome.c
 * Author: Sherif Awad
 */
 #include "main.h"
