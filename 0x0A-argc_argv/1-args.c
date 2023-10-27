@@ -1,5 +1,5 @@
 /*
- * File: whats my name to print the file name
+ * File: args to print the count 
  *
  * Author: Sherif Awad
  */
