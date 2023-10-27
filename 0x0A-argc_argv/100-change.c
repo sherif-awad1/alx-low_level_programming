@@ -28,6 +28,7 @@ int main(int argc, char **argv)
 	if (coins < 0)
 	{
 		printf("0\n");
+		return (0);
 	}
 	for (i = 0; i < 5 && coins >= 0; i++)
 	{
