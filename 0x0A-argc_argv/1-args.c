@@ -1,6 +1,5 @@
 /*
- * File: args to print the count 
- *
+ * File: args to print the count
  * Author: Sherif Awad
  */
 #include "main.h"
