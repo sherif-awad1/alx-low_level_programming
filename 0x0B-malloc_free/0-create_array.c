@@ -10,7 +10,7 @@
  * create_array - to creat an array
  * @size: array size
  * @c: char
- * Retuen: 0 if size 0
+ * Return: s or NULL
  */
 
 
