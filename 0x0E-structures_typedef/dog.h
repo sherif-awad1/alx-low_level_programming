@@ -1,8 +1,3 @@
-/*
- * File: dog header libery
- *
- * Author: Sherif Awad
- */
 #ifndef DOG_H
 #define DOG_H
 
