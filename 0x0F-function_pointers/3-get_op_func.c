@@ -4,6 +4,7 @@
  * Author: Sherif awad
  */
 #include "3-calc.h"
+#include <stdlib.h>
 /**
  * *get_op_fun - pointer to the function
  * @s: pointer to the operator
@@ -24,6 +25,5 @@ int (*get_op_fun(char *s))(int, int)
 
 	while (ops[i].op != NULL && *(ops[i].op) != *s)
 		i++;
-
 	return (ops[i].f);
 }
