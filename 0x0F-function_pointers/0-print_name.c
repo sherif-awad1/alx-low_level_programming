@@ -3,7 +3,7 @@
  *
  * Author: Sherif Awad
  */
-#include "function_pointer.h"
+#include "function_pointers.h"
 /**
  * print_name - print the name
  * @name: string to print
