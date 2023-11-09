@@ -6,12 +6,11 @@
 #include "3-calc.h"
 #include <stdlib.h>
 /**
- * *get_op_fun - pointer to the function
+ * *get_op_func - pointer to the functuin
  * @s: pointer to the operator
- * Return: pointer to function
+ * Return: pointer to the function
  */
-
-int (*get_op_fun(char *s))(int, int)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 		{"+", op_add},
@@ -21,6 +20,7 @@ int (*get_op_fun(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
+
 	int i = 0;
 
 	while (ops[i].op != NULL && *(ops[i].op) != *s)
