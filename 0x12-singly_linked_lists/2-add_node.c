@@ -28,12 +28,13 @@ list_t *add_node(list_t **head, const char *str)
 		free(new);
 		return (NULL);
 	}
-	for (leng = 0; str[leng]; leng++)
-	{
-	};
+	for (leng = 0; str[leng];)
+		leng++;
+
 	new->str = ptr;
 	new->len = leng;
 	new->next = *head;
+	*head = new;
 
 	return (new);
 }
