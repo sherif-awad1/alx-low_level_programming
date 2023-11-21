@@ -5,7 +5,7 @@
  */
 #include "lists.h"
 /**
- * listint_len - node length
+ * listint_leng - node length
  * @head: pointer to head
  * Return: the length
  */
