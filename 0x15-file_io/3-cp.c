@@ -81,8 +81,8 @@ int main(int argc, char **argv)
 	} while (red > 0);
 
 	free(buf);
-	close_file(frm);
-	close_file(to);
+	file_closer(frm);
+	file_closer(to);
 
 	return (0);
 }
