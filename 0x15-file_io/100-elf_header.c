@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 
 	free(h);
 	_closer(opn);
-return (0);
+	return (0);
 }
 
 /**
@@ -89,7 +89,7 @@ void print_mgc(unsigned char *m)
 {
 	int i;
 
-	printf("  Magic:  ");
+	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", m[i]);
