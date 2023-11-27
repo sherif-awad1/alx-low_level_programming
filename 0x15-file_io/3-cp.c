@@ -53,17 +53,20 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
 	buf = buf_alcater(argv[2]);
 	frm = open(argv[1], O_RDONLY);
 	red = read(frm, buf, 1024);
 	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
 	do {
-		if (frm == -1 || rit == -1)
+		if (frm == -1 || red == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buf);
 			exit(98);
 		}
+
 		rit = write(to, buf, red);
 		if (to == -1 || rit == -1)
 		{
@@ -71,11 +74,15 @@ int main(int argc, char **argv)
 			free(buf);
 			exit(99);
 		}
+
 		red = read(frm, buf, 1024);
 		to = open(argv[2], O_WRONLY | O_APPEND);
+
 	} while (red > 0);
+
 	free(buf);
-	file_closer(frm);
-	file_closer(to);
+	close_file(frm);
+	close_file(to);
+
 	return (0);
 }
