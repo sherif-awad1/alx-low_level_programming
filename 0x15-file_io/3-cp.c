@@ -51,12 +51,12 @@ int main(int argc, char **argv)
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(98);
+		exit(97);
 	}
 	buf = buf_alcater(argv[2]);
 	frm = open(argv[1], O_RDONLY);
 	red = read(frm, buf, 1024);
-	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0663);
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	do {
 		if (frm == -1 || rit == -1)
 		{
